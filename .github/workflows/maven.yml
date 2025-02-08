@@ -1,0 +1,23 @@
+name: Java CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17  # Use Java 17 (the version used by JUnit Pioneer)
+          distribution: 'temurin'  # Use Eclipse Temurin (a popular JDK distribution)
+
+      - name: Build with Maven
+        run: mvn clean package
+
+      - name: Run tests
+        run: mvn test
