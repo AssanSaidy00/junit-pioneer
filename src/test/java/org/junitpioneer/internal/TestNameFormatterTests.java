@@ -39,7 +39,7 @@ public class TestNameFormatterTests {
 	void replacesIndex() {
 		TestNameFormatter formatter = new TestNameFormatter("Index is {index}", "", TestNameFormatter.class);
 
-		assertThat(formatter.format(3)).isEqualTo("Index is 3");
+		assertThat(formatter.format(A)).isEqualTo("Index is 3");
 	}
 
 	@Test
